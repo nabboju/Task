@@ -1,12 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Tracker</title>
+    <style>
+        #main-div{
+
+            margin: 10% 0 0 25%;
+        }
+        .error-box{
+          border:   1px solid red
+        }
+        label{
+            font:20px  bolder black;
+        }
+        .p-error{
+            color:red;
+        }
+        #header{
+            width:40%;
+        }
+        .task-div{
+            background-color: white;
+        }
+        #creator{
+            padding-right: 20px;
+            border-right: 2px solid gray;
+        }
+        #viewer{
+            padding-left: 20px;
+        }
+        #table-data{
+            border: 2px solid gray;
+        }
+        sub{
+            margin: 0;
+        }
+        tr:nth-child(odd) {
+            background: lightgray;
+
+        }
+        td:nth-child(odd){
+            border: 0;
+            padding: 0;
+            margin: 0;
+        }
+        tr{
+            line-height: 30px;
+        }
+    </style>
+</head>
 <body>
+<div id="main-div">
+<div id="header" style="background-color: lightgrey">
+    <h1>Task Tracker<br><sub>v2.0</sub></h1>
 
-<script>
-    for(var i=0;i<5;i++){
-document.write("number"+i+"<br/>");
-    }
-</script>
+</div>
+<div id="creator" class="task-div" style="float: left">
+    <h3>Create a Task</h3>
 
+    <form id="task-form" onsubmit="event.preventDefault()">
+        <label for="task-name">Task Name</label><br>
+        <input type="text" name="task-name" id="task-name" ><br><br>
+        <label for="task-date">Date</label><br>
+        <input type="date" name="task-date" id="task-date" ><br><br>
+        <label for="assigned-to">Assigned To</label><br>
+        <input type="text" name="assigned-to" id="assigned-to" ><br><br>
+        <button type="button" onclick="prependTasks()">Submit</button>
+        <p id="validation" class="p-error" ></p>
+    </form>
+
+</div>
+
+
+<div id="viewer" class="task-div" style="float: left">
+<h3> Existing Tasks</h3>
+    <table id="table-data"  >
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+</div>
+
+</div>
+<script  src="script.js"></script>
 </body>
 </html>
